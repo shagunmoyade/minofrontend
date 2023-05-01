@@ -1,0 +1,157 @@
+$grid-header-bg: #dee1e9;
+$grid-header-text: #4b5564;
+$grid-alt-bg: #ffffff;
+$grid-alt-border: #ffffff;
+$grid-hovered-bg: rgba(blue, 0.20);
+$grid-selected-bg: rgba(blue, 0.30);
+@import "~@progress/kendo-theme-default/scss/grid/_index.scss";
+/*For better understanding of this please go through this link https://www.telerik.com/kendo-angular-ui/components/styling/custom-themes/    */
+
+.k-switch {
+    cursor: pointer;
+    width: 53.51px;
+    background: #F7471E;
+    border-radius: 14.5px;
+    box-sizing: border-box;
+    outline: 0;
+    display: inline-flex;
+    overflow: hidden;
+    vertical-align: middle;
+    font-family: inherit;
+    font-size: 10px;
+    line-height: 1.42857143;
+    height: 20px;
+    user-select: none;
+    text-align: left;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.k-switch-handle {
+    border-radius: 1em;
+    width: 16.16px;
+    height: 16px;
+    border-width: 1px;
+    border-style: solid;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    /* left: 0; */
+    transition: left 200ms ease-out 0s;
+    margin-left: 4.34px;
+    margin-top: 1px;
+}
+
+.k-switch-on .k-switch-handle {
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #ffffff;
+    background-color: #f2f2f2;
+    margin-top: 2px;
+    margin-right: 2.03px;
+    margin-bottom: 2px;
+    margin-left: 18.43px;
+}
+.k-switch-off .k-switch-handle {
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #656565;
+    background-color: #f2f2f2;
+    margin-top: 2px;
+    margin-left: 3.03px;
+    margin-bottom: 2px;
+}
+
+
+.k-switch-off .k-switch-container {
+    color: #656565;
+    /* background-color: #ffffff; */
+    background: #ABB0BC;
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 14.5px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+.k-switch-on:hover .k-switch-container, .k-switch-on.k-state-hover .k-switch-container {
+    background: #F7471E;
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 14.5px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+    height: 20px;
+    width: 53.51px;
+}
+.k-switch-on .k-switch-container, .k-switch-on.k-state-hover .k-switch-container {
+    background: #F7471E;
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 14.5px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+    height: 20px;
+    width: 53.51px;
+}
+.k-switch-off .k-switch-container, .k-switch-on.k-state-hover .k-switch-container {
+    background: #ABB0BC;
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 14.5px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+    height: 20px;
+    width: 53.51px;
+}
+.k-switch-off:hover .k-switch-container, .k-switch-on.k-state-hover .k-switch-container {
+    background: #ABB0BC;
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 14.5px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+    height: 20px;
+    width: 53.51px;
+}
+.k-switch-label-on {
+    text-align: left;
+    left: calc( 8px - 0);
+    width: 20.19px;
+}
+
+.k-switch-label-off {
+    text-align: right;
+    right: calc( 8px - 0);
+    width: 25.19px;
+}
+.k-checkbox {
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #656565;
+  background-color: #ffffff;
+  border-width: 1px;
+  border-color: #f7471e;
+  border-radius: 2px;
+  margin: 0;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  line-height: initial;
+  border-style: solid;
+  outline: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  -webkit-appearance: none;
+}

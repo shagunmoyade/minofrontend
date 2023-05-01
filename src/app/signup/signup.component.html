@@ -1,0 +1,104 @@
+<div class="row" style="width:100%;height:100%">
+    <div class="col-md-12">
+        <div style="padding: 3%;">
+            <h1>MINO</h1>
+        </div>
+        <div>
+            <form [formGroup]="signupform">
+                <div>
+                    <div class="row">
+                        <div class="col-md-12 display">
+                            <img src="../../assets/images/Group 15.png">
+                            <!-- <img src="../../assets/images/Group 15-sad.png" *ngIf="invalidPassword"> -->
+                        </div>
+                        <div class="col-md-12 display">
+                            <h4>Sing up your account</h4>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6" style="margin-bottom: 15px;">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="form-group display" style="margin-bottom: 10px;">
+                                        <input type="text"
+                                            formControlName="fullname"
+                                            class="input" placeholder="Enter Full Name" maxlength="20" oninput="this.value = this.value.replace(/[^A-Za-z0-9-,.;fa-rotate-90'&/.() ]|^ /g,'')">
+                                        
+                                    </div>
+                                    <div style="    padding-left: 5px;
+                                    color: red;" *ngIf=" f.fullname.errors && (f.fullname.dirty || f.fullname.touched || submitted) ">
+                                        <p *ngIf="f.fullname.errors.required">Full name is required</p>
+                                        <p *ngIf="f.fullname.errors.minlength"> Name must be at least 8 characters long</p>
+                                    </div>
+                                    <div class="form-group display" style="margin-bottom: 10px;">
+                                        <input type="email"
+                                            formControlName="email"
+                                            class="input" placeholder="Enter Email" oninput="this.value = this.value.replace(/[^A-Za-z0-9-,.;@'&/.() ]|^ /g,'')">
+                                    </div>
+                                    <div style="    padding-left: 5px;
+                                    color: red;" *ngIf=" f.email.errors && (f.email.dirty || f.email.touched || submitted) ">
+                                        <p *ngIf="f.email.errors.required">Email is required</p>
+                                        <p *ngIf="f.email.errors.pattern">Email is invalid</p>
+                                    </div>
+                                    <div class="form-group display" style="margin-bottom: 10px;">
+                                        <input type="password"
+                                            formControlName="password"
+                                            class="input" placeholder="Enter Password" maxlength="15" oninput="this.value = this.value.replace(/[^A-Za-z0-9-,.;@'&/.() ]|^ /g,'')">
+                                    </div>
+                                    <div style="    padding-left: 5px;
+                                    color: red;" *ngIf=" f.password.errors && (f.password.dirty || f.password.touched || submitted) ">
+                                        <p *ngIf="f.password.errors.required">Password is required</p>
+                                        <p *ngIf="f.password.errors.minlength"> Password must be at least 6 characters long</p>
+                                    </div>
+                                    <div class="form-group display" style="margin-bottom: 10px;">
+                                        <input type="password"
+                                            formControlName="confirmpassword"
+                                            class="input" placeholder="Confirm Password"  maxlength="15" oninput="this.value = this.value.replace(/[^A-Za-z0-9-,.;@'&/.() ]|^ /g,'')">
+                                    </div>
+                                    <div style="    padding-left: 5px;
+                                    color: red;" *ngIf=" f.confirmpassword.errors && (f.confirmpassword.dirty || f.confirmpassword.touched || submitted) ">
+                                        <p *ngIf="f.confirmpassword.errors.required">Confirm password is required</p>
+                                        <p *ngIf="f.confirmpassword.errors.minlength"> Confirm password be at least 6 characters long</p>
+                                    </div>
+                                    <label for="">Upload Your Avtar</label>
+                                    <div class="form-group display" style="margin-bottom: 10px;">
+
+                                        <input type="file"
+                                            formControlName="image_url"
+                                            (change)="handleFileInput($event.target.files)"
+                                            placeholder="Profile Photo"
+                                            class="input">
+                                    </div>
+                                    <div style="    padding-left: 5px;
+                                    color: red;" *ngIf=" f.image_url.errors && (f.image_url.dirty || f.image_url.touched || submitted) ">
+                                        <p *ngIf="f.image_url.errors.required">Avtar is required</p>
+                                
+                                    </div>
+                                    <div class="form-element display">
+                                        <button type="submit" class="btnSubmit"
+                                            (click)="signup(signupform.value)"
+                                            >Signup</button>
+                                        <button type="submit" class="btnSubmit1"
+                                            (click)="gotologin()">Login</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <!-- <div class="col-md-4" style="padding: 0%;text-align: right;">
+                                      <p><a (click)='recoverPassword()'> Forgot Password?</a></p>
+                                  </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3"></div>
+
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

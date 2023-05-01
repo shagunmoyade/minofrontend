@@ -1,0 +1,80 @@
+<div class="body">
+    <div class="col-md-12">
+      <div class="row" >
+          <div class="" style=" margin-top: 20px;
+        ">
+  <h3> Search Friends</h3>
+          </div>
+      </div>
+  </div>
+    <div class="col-md-12">
+      <div class="row" >
+          <div class="col-md-3" >
+  <div style=" margin-top: 5px;
+  margin-bottom: 15px;">
+    <div class="form-group display">
+        <input type="text" class="input" [(ngModel)]="searchinput" (input)="getinput($event.target.value)" oninput="this.value = this.value.replace(/[^A-Za-z0-9-,.;@'&/.() ]|^ /g,'')"  maxlength="15" placeholder="Search with Name or Email"  >
+    </div>
+  </div>
+          </div>
+          <div class="col-md-3" >
+            <div style=" margin-top: 5px;
+            margin-bottom: 15px;">
+             <button class="addbtn"  [disabled]="searchinput == undefined" (click)="search()">Search</button>
+             <button style="padding: 10px;
+             border-radius: 8px;
+             border: 1px solid gray;
+             color: #fff;
+             background: gray;
+             margin-left: 10px;"  (click)="reset()">Reset</button>
+
+            </div>
+                    </div>
+      </div>
+  </div>
+
+  <div class="col-md-12" *ngIf="searchResult.length != 0 && returnn == true">
+        <div (click)="getFriendbyid(data._id,seefriend)" class="row" style="background-color: #E9EDC9;border-radius: 10px;margin-top: 7px;margin-bottom: 8px;" *ngFor="let data of searchResult">  
+            <img [src]="this.baseurl+'/auth/getavtar?filePath='+data.image_url" alt="" width="80px" height="80px">
+         <p style="    padding-top: 25px;
+         font-size: 20px;
+         padding-left: 10px;">{{data.fullname}}</p>
+    </div>
+  </div>
+  <div class="col-md-12" style="text-align:center" *ngIf="searchResult.length == 0 && returnn == false">
+   <p>Nothing to show</p>
+</div>
+  </div>
+
+
+
+  <ng-template #seefriend let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Friend Details</h4>
+      <button type="button" class="addbtn" aria-label="Close" (click)="modal.dismiss('Cross click')">X</button>
+    </div>
+    
+    <div class="modal-body">
+    <div class="row">
+      <div class="col-md-6" style="text-align: center;" *ngIf="friendDetail">
+        <img [src]="this.baseurl+'/auth/getavtar?filePath='+friendDetail.image_url" alt="" width="100px" height="100px" >
+      </div>
+      <div class="col-md-6">
+        <p style="padding-top: 25px;
+        font-size: 14px;
+        padding-left: 10px;">Name : {{friendDetail.fullname}}</p> 
+         <p style="padding-top: 5px;
+         font-size: 14px;
+         padding-left: 10px;">Email : {{friendDetail.email}}</p>
+      </div>
+ 
+    </div>
+    </div>
+    <div class="modal-footer">
+      <button class="clearbtn" type="reset" (click)="cancel()">Cancel</button>
+      <button class="addbtn" type="reset" *ngIf="friendDetail.actionTaker == 'Addfriend'" (click)="sendfriendrequest()">Add Friend</button>
+      <!-- <button class="addbtn" type="reset" *ngIf="friendDetail.actionTaker == 'Reciver'" (click)="sendfriendrequest()">Reject</button>
+      <button class="addbtn" type="reset" *ngIf="friendDetail.actionTaker == 'Reciver'" (click)="sendfriendrequest()">Accept</button> -->
+
+    </div>
+  </ng-template>

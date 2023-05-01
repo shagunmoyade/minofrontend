@@ -1,0 +1,41 @@
+<div class="col-md-12" style="padding: 20px;">
+    <div *ngIf="notification.length > 1">
+        <div class="row">
+            <div class="col-md-12" style="
+            text-align: end;
+            padding: 10px;">
+                <a (click)="clearnotificaion(deletenotification,0)">Clear All</a>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="notification.length != 0">
+        <div (click)="clearnotificaion(deletenotification,noti._id)" class="row" style="background-color: #D1D1D1;border-radius: 10px;    margin-top: 6px;
+        margin-bottom: 6px;" *ngFor="let noti of notification">
+        <p style="padding: 12px;
+         margin: 0;font-size: 14px;">{{noti.message}} <span class="blink" *ngIf="noti.seen == false">*</span> </p>
+        </div>
+    </div>
+<div  style="text-align: center;" *ngIf="notification.length == 0">
+  <p>Nothing to Show</p>
+</div>
+ 
+</div>
+
+
+
+<ng-template #deletenotification let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title" >Clear this Notification?</h4>
+      <button type="button" class="addbtn" aria-label="Close" (click)="modal.dismiss('Cross click')">X</button>
+    </div>
+    
+    <div class="modal-body">
+     <div>
+      <h3>Are You Sure?</h3>
+     </div>
+    </div>
+    <div class="modal-footer">
+      <button class="clearbtn" type="reset" (click)="cancel()">cancel</button>
+      <button class="addbtn" (click)="sureclear()">Sure</button>
+    </div>
+  </ng-template>

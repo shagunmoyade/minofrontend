@@ -1,0 +1,70 @@
+<div class="row" style="text-align: center;">
+    <div class="res">
+        <div class="card" style="text-align: center; background: cadetblue;">
+            <p class="f">Total User</p>
+            <h5>{{Counts.totalUser}}</h5>
+        </div>
+    </div>
+    <div class="res">
+        <div class="card" style="text-align: center;background:
+            cornflowerblue;">
+            <p class="f">Active User</p>
+            <h5>{{Counts.activeUser}}</h5>
+        </div>
+    </div>
+    <div class="res">
+        <div class="card " style="text-align: center; background: darkgray;">
+            <p class="f">Inactive User</p>
+            <h5>{{Counts.deactiveUser}}</h5>
+        </div>
+    </div>
+    <div class="res">
+        <div class="card " style="text-align: center;background: darkkhaki;">
+            <p class="f">Super Admin User</p>
+            <h5>{{Counts.issuperadminUser}}</h5>
+        </div>
+    </div>
+    <div class="res">
+        <div class="card" style="text-align: center; background: darkseagreen;">
+            <p class="f">Admin User</p>
+            <h5>{{Counts.isadminUser}}</h5>
+        </div>
+    </div>
+</div>
+
+<div style="overflow-x:auto;">
+    <table>
+        <tr>
+          <th >S. No</th>
+          <th>User Id</th>
+          <th>User Name</th>
+          <th>Email</th>
+          <th>Active/Deactive</th>
+          <th>IsAdmin</th>
+          <th>IsSuperAdmin</th>
+          <!-- <th>Contact</th>
+          <th>Country</th> -->
+        </tr>
+        <tr *ngFor="let data of userData; let i = index">
+          <td >{{i+1}}</td>
+          <td>{{data.id}}</td>
+          <td>{{data.fullname}}</td>
+          <td>{{data.email}}</td>
+          <td><label class="switch">
+            <input type="checkbox" [(ngModel)]="data.active" (change)="oncheck($event,data._id,1)">
+            <span class="slider round"></span>
+          </label></td>
+          <td><label class="switch">
+            <input type="checkbox" [(ngModel)]="data.isAdmin" (change)="oncheck($event,data._id,2)">
+            <span class="slider round"></span>
+          </label></td>
+          <td><label class="switch">
+            <input type="checkbox" [(ngModel)]="data.isSuperAdmin" (change)="oncheck($event,data._id,3)">
+            <span class="slider round"></span>
+          </label></td>
+          <!-- <td>Maria Anders</td>
+          <td>Germany</td> -->
+        </tr>
+        
+      </table>
+  </div>
