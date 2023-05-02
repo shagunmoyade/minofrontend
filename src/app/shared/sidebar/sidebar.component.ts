@@ -31,7 +31,7 @@ baseURL = environment.URL
   userDetails: any = {};
   URL = '';
   imagURL:any
-
+  userName:any
   constructor(
     public translate: TranslateService,
   ) {
@@ -43,6 +43,8 @@ baseURL = environment.URL
 
 
   ngOnInit() {
+    this.userName =  localStorage.getItem('userName')
+
     this.imagURL = localStorage.getItem('imageurl')
     let data = localStorage.getItem('data')
     let data2 = JSON.parse(atob(data))

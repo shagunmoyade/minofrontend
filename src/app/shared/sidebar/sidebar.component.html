@@ -28,6 +28,18 @@
             <img [src]="this.baseURL+'/auth/getavtar?filePath='+imagURL" alt="" width="120px" height="120px" style="border-radius: 60px">
     
         </div>
+        <br>
+        <div style="text-align: center;" >
+            <label style="
+                            font-family: Raleway;
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 14px;
+                            line-height: 16px;
+                            color: #ffffff;
+                            ">{{userName}} </label>
+        </div>
+        <br>
         <ul class="navigation" appSidebarList>
             <!-- First level menu -->
              <li appSidebarlink level="{{depth + 1}}" (toggleEmit)="handleToggle($event)"(click)="toggleSlideInOut()" [routePath]="menuItem.path" [classes]="menuItem.class" [title]="menuItem.title"  [parent]="" *ngFor="let menuItem of menuItems"   [ngClass]="{'has-sub': menuItem.class === 'has-sub' ? true: false, 'open': activeTitles.includes(menuItem.title) && !nav_collapsed_open ? true : false, 'nav-collapsed-open': nav_collapsed_open && activeTitles.includes(menuItem.title)}" [routerLinkActive]="menuItem.submenu.length != 0 ? '' : 'active'"
